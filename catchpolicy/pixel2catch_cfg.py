@@ -108,10 +108,7 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
     sim: SimulationCfg = SimulationCfg(
         dt=1/120,
         render_interval=decimation,
-        # disable_contact_processing=True,
         physics_material=sim_utils.RigidBodyMaterialCfg(
-            # friction_combine_mode="multiply",
-            # restitution_combine_mode="multiply",
             static_friction=1.0,
             dynamic_friction=1.0,
             restitution=0.0,
@@ -131,10 +128,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
 
     center_camera: TiledCameraCfg = TiledCameraCfg(
         prim_path="/World/envs/env_.*/center_camera",
-        # offset=TiledCameraCfg.OffsetCfg(pos=(-0.38, 0.0, 2.2), rot=(0.9659258, 0, 0.258819, 0), convention="world"),
         offset=TiledCameraCfg.OffsetCfg(pos=(-0.39, 0.01, 2.2), rot=(0.96814764037, 0, 0.25038000405, 0), convention="world"),
         data_types=["rgb"],
-        # data_types=["semantic_segmentation"],
         spawn=sim_utils.PinholeCameraCfg.from_intrinsic_matrix(
             intrinsic_matrix=intrinsic_matrix,
             width=width,
@@ -144,9 +139,6 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
             f_stop=0.0,
             projection_type="pinhole"
         ),
-        # spawn=sim_utils.PinholeCameraCfg(
-        #     focal_length=0.19, focus_distance=400.0, horizontal_aperture=0.384, clipping_range=(0.1, 10.0)
-        # ),
         width=640,
         height=480,
     )
@@ -182,24 +174,15 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
         prim_path="/World/envs/env_.*/Catcher",
         spawn=sim_utils.UsdFileCfg(
             usd_path=f"{CATCHPOLICY_DIR}/assets/allegroUR5e/ur5e/ur5e_allegro.usd",
-            # activate_contact_sensors=True,
             rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=True,
-            # max_depenetration_velocity= 0.1,
             max_depenetration_velocity=10,
-            # max_linear_velocity=1000.0,
-            # max_angular_velocity=64 / math.pi * 180.0,
-            # max_contact_impulse=1e32,
             ),
             articulation_props=sim_utils.ArticulationRootPropertiesCfg(
                 enabled_self_collisions=True,
                 solver_position_iteration_count=32,
                 solver_velocity_iteration_count=4,
             ),
-            # collision_props=sim_utils.CollisionPropertiesCfg(
-            # contact_offset=0.001,
-            # rest_offset=0.0001,
-            # ),
         ),
         init_state=ArticulationCfg.InitialStateCfg(
             joint_pos={
@@ -338,35 +321,6 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
     # Random Object
     '''for validation
     '''
-    # objects = RigidObjectCfg(
-    #     prim_path="/World/envs/env_.*/Object",
-    #     spawn=sim_utils.MultiAssetSpawnerCfg(
-    #         assets_cfg=[
-    #             sim_utils.MultiUsdFileCfg(
-    #                 usd_path=[
-    #                     f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/tomato_soup_can.usd", # rot = (1,0,0,0)
-    #                     # f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/mug.usd", # rot = (1,0,0,0)
-    #                     # f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/foam_brick.usd", # rot = (1,0,0,0)
-    #                     # f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/banana.usd", # rot = (1,0,0,0)
-    #                     # f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/donut.usd",
-    #                     # f"/home/kimsy/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy/assets/valid_objects/irregular.usd",
-    #                 ],
-    #                 random_choice=True,
-    #                 rigid_props=sim_utils.RigidBodyPropertiesCfg(
-    #                     solver_position_iteration_count=4, solver_velocity_iteration_count=0, max_depenetration_velocity=1000,
-    #                 ),
-    #                 mass_props=sim_utils.MassPropertiesCfg(mass=0.2),
-    #                 collision_props=sim_utils.CollisionPropertiesCfg(),
-    #                 visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
-    #                 semantic_tags= [("class", "object"),("color", "green")]
-    #             )
-    #         ]
-    #     ),
-    #     init_state=RigidObjectCfg.InitialStateCfg(
-    #         pos=(0.0,0.0,0.0),
-    #         rot=(0, 0, 0.7071068, 0.7071068)),
-    #         # rot=(1, 0, 0, 0))
-    # )
 
     objects = RigidObjectCfg(
         prim_path="/World/envs/env_.*/Object",
@@ -378,13 +332,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     height=0.08,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # large cone
@@ -393,13 +342,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     height=0.09,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # normal cylinder
@@ -408,13 +352,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     height=0.06,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # large cylinder
@@ -423,13 +362,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     height=0.07,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # normal cube
@@ -437,13 +371,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     size=(0.05,0.05,0.05),
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # large cube
@@ -451,13 +380,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     size=(0.06,0.06,0.06),
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # normal sphere
@@ -465,13 +389,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     radius=0.035,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # large sphere
@@ -479,13 +398,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     radius=0.04,
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # normal capsule
@@ -495,13 +409,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     axis='Z',
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
                 # large capsule
@@ -511,13 +420,8 @@ class DynamicCatchEnvCfg(DirectMARLEnvCfg):
                     axis='Z',
                     visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0,1.0,0.0), metallic=0.2),
                     physics_material=sim_utils.RigidBodyMaterialCfg(
-                        # static_friction=1.5,
-                        # dynamic_friction=1.5,
                         friction_combine_mode="max",
-                    #    restitution=0.8,
                        restitution_combine_mode="max",
-                    #     compliant_contact_stiffness=1e3,
-                    #     compliant_contact_damping=500.0
                     )
                 ),
             ],
