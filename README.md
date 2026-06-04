@@ -14,11 +14,11 @@
   <a href="#"><img src="https://img.shields.io/badge/Video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Video"/></a>
 </p>
 
-<img src="docs/teaser.png" width="92%" alt="Pixel2Catch teaser"/>
+<img src="docs/real_demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
 
-<sub><em>An RGB-only robotic catching system without explicit 3D position estimation. Object motion is inferred from
-pixel-level features in image space rather than metric 3D coordinates, and policies trained in simulation transfer
-directly to the real robot without fine-tuning.</em></sub>
+<sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera.
+Policies are trained entirely in simulation and transferred directly to the real robot without fine-tuning.
+See the full videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
 </div>
 
