@@ -1,26 +1,36 @@
 <div align="center">
 
-# Pixel2Catch
+<h1>🤖 Pixel2Catch</h1>
 
-### Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera
+<h3>Multi-Agent Sim-to-Real Transfer for Agile Manipulation<br/>with a Single RGB Camera</h3>
 
-<!-- TODO: replace with author list and venue -->
+<!-- TODO: replace with the author list from the paper -->
+<p><em>TODO — Author One, Author Two, Author Three</em></p>
+
 <p>
-  <em>Anonymous Authors</em><br>
-  <em>Under Review / Venue Year</em>
+  <a href="https://www.ieee-ras.org/publications/ra-l">
+    <img src="https://img.shields.io/badge/IEEE%20RA--L-2026-00629B?style=for-the-badge&logo=ieee&logoColor=white" alt="RA-L 2026"/>
+  </a>
 </p>
 
-<!--
-  TODO: replace the "#" links below with the real URLs.
-    PAPER_URL        -> arXiv / paper PDF
-    YOUTUBE_URL      -> result / overview video
--->
-[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b.svg?style=for-the-badge&logo=arxiv)](#)
-[![Project Page](https://img.shields.io/badge/Project-Page-1f8acb.svg?style=for-the-badge&logo=githubpages)](https://seongdrgn.github.io/pixel2catch/)
-[![Video](https://img.shields.io/badge/Video-YouTube-ff0000.svg?style=for-the-badge&logo=youtube)](#)
+<!-- 🎉 Acceptance banner 🎉 -->
+<p>
+  <img src="https://img.shields.io/badge/%F0%9F%8E%89%20Accepted%20to%20IEEE%20RA--L%202026-2ea44f?style=for-the-badge" alt="Accepted to RA-L 2026"/>
+</p>
 
-<!-- TODO: add a teaser image/GIF, e.g. ./docs/teaser.gif -->
-<!-- <img src="docs/teaser.gif" width="80%"> -->
+> ### 🎉 Great news — Pixel2Catch has been **accepted to IEEE Robotics and Automation Letters (RA-L) 2026**! Congratulations to the team! 🎉
+
+<!--
+  TODO: replace the "#" links for Paper and Video with the real URLs.
+-->
+<p>
+  <a href="#"><img src="https://img.shields.io/badge/Paper-PDF-b31b1b?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Paper"/></a>
+  <a href="https://seongdrgn.github.io/pixel2catch/"><img src="https://img.shields.io/badge/Project-Page-1f8acb?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Project Page"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Video"/></a>
+</p>
+
+<!-- TODO: add the paper teaser figure here, e.g. ./docs/teaser.png -->
+<!-- <img src="docs/teaser.png" width="90%"/> -->
 
 </div>
 
@@ -173,8 +183,8 @@ If you find this work useful, please cite:
 @article{pixel2catch,
   title   = {Pixel2Catch: Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera},
   author  = {TODO},
-  journal = {TODO},
-  year    = {TODO}
+  journal = {IEEE Robotics and Automation Letters (RA-L)},
+  year    = {2026}
 }
 ```
 
