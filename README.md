@@ -16,9 +16,9 @@
 
 <img src="docs/real_demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
 
-<sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera.
-Policies are trained entirely in simulation and transferred directly to the real robot without fine-tuning.
-See the full videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
+<sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera,
+shown in slow motion (0.3×). Policies are trained entirely in simulation and transferred directly to the real robot
+without fine-tuning. See the full-speed videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
 </div>
 
