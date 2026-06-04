@@ -38,18 +38,12 @@ fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch
 
 ## Overview
 
-To catch a thrown object, a robot must perceive the object's motion and act in a timely manner. Rather than explicitly
-estimating the object's 3D position, **Pixel2Catch** recognizes object motion using **pixel-level visual information
-extracted from consecutive RGB frames** — visual cues that capture changes in the object's image-space position and
-scale, allowing the policy to reason about motion **without metric 3D coordinates**.
+**Pixel2Catch** catches thrown objects from a **single RGB camera**, recognizing object motion via **pixel-level
+features from consecutive RGB frames** instead of explicit 3D position. The arm and hand are trained as a
+**heterogeneous multi-agent (MARL)** system and transfer **zero-shot from simulation to the real world**.
 
-To learn stable behavior on a high-DoF system (a robot arm + a multi-fingered hand), we design a **heterogeneous
-multi-agent reinforcement learning (MARL)** framework that treats the **arm** and **hand** as independent agents with
-distinct roles. Each agent is trained cooperatively with role-specific observations and rewards, and the learned
-policies transfer **zero-shot from simulation to the real world**.
-
-This repository releases the **simulation training code** for the Pixel2Catch task: the environment, its
-configuration, the multi-agent (MAPPO) agent config, and the simulation assets needed to reproduce training.
+This repository releases the **simulation training code**: the environment, its configuration, the MAPPO agent
+config, and the simulation assets needed to reproduce training.
 
 > **Training algorithm.** Pixel2Catch is trained with the **MAPPO algorithm from Isaac Lab's built-in
 > [skrl](https://skrl.readthedocs.io) integration, used without any modification** (verified identical to upstream
