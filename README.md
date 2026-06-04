@@ -14,7 +14,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Video"/></a>
 </p>
 
-<img src="docs/real_demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
+<img src="docs/demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
 
 <sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera,
 shown first at real time, then replayed in slow motion (0.3×). Policies are trained entirely in simulation and
@@ -27,7 +27,7 @@ transferred directly to the real robot without fine-tuning. See the full videos 
 
 ## 🎉 News
 
-> **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_! 🎉
+- **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_! 🎉
 
 ---
 
