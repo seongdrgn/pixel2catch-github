@@ -23,9 +23,8 @@
 </table>
 
 <sub><em>Real-world demonstrations (full clips, original speed) of zero-shot catching of human-thrown objects from a
-single RGB camera. Each clip shows the real-time catch followed by the authors' slow-motion replay. Policies are
-trained entirely in simulation and transferred directly to the real robot without fine-tuning. Full videos on the
-<a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
+single RGB camera. Policies are trained entirely in simulation and transferred directly to the real robot without
+fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
 </div>
 
