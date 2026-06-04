@@ -1,19 +1,10 @@
 <div align="center">
 
-<h1>🤖 Pixel2Catch</h1>
-
-<h3>Multi-Agent Sim-to-Real Transfer for Agile Manipulation<br/>with a Single RGB Camera</h3>
+<h1>Pixel2Catch: Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera</h1>
 
 <p>
   <strong>Seongyong Kim, Junhyeon Cho, Kang-Won Lee, and Soo-Chul Lim</strong><br/>
-  <em>Department of Mechanical Engineering, Dongguk University, Seoul, South Korea</em>
-</p>
-
-<p>
-  <a href="https://www.ieee-ras.org/publications/ra-l">
-    <img src="https://img.shields.io/badge/IEEE%20RA--L-2026-00629B?style=for-the-badge&logo=ieee&logoColor=white" alt="RA-L 2026"/>
-  </a>
-  <img src="https://img.shields.io/badge/%F0%9F%8E%89%20Accepted-IEEE%20RA--L%202026-2ea44f?style=for-the-badge" alt="Accepted to RA-L 2026"/>
+  <em>Dongguk University</em>
 </p>
 
 <!-- TODO: replace the "#" links for Paper and Video with the real URLs. -->
@@ -228,6 +219,7 @@ thank their authors and maintainers.
 
 ## Contact
 
-Soo-Chul Lim (corresponding author) — `limsc@dongguk.edu`
+- Seongyong Kim (first author) — `sykim_414@dgu.ac.kr`
+- Soo-Chul Lim (corresponding author) — `limsc@dongguk.edu`
 
 <!-- TODO: choose a license (e.g. BSD-3-Clause, MIT) and add a LICENSE file -->
