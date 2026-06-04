@@ -1,82 +1,121 @@
-# pixel2catch
+<div align="center">
 
-**Learning a Dynamic Object-Catching Policy from Pixels — Joint MAPPO Training in Isaac Lab.**
+# Pixel2Catch
 
-`pixel2catch` is an [Isaac Lab](https://isaac-sim.github.io/IsaacLab/) *direct* RL task in
-which a UR5e arm equipped with an Allegro hand learns to **catch a thrown object using
-on-board camera (pixel) observations**. The arm (approach) and the hand (grasp) are treated
-as two cooperating agents and trained jointly with **MAPPO** (Multi-Agent PPO).
+### Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera
 
-> This repository contains **our method only** — the `pixel2catch` environment, its
-> configuration, and the agent (MAPPO) config. Baseline variants and development
-> iterations are intentionally excluded.
+<!-- TODO: replace with author list and venue -->
+<p>
+  <em>Anonymous Authors</em><br>
+  <em>Under Review / Venue Year</em>
+</p>
+
+<!--
+  TODO: replace the "#" links below with the real URLs.
+    PAPER_URL        -> arXiv / paper PDF
+    YOUTUBE_URL      -> result / overview video
+-->
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b.svg?style=for-the-badge&logo=arxiv)](#)
+[![Project Page](https://img.shields.io/badge/Project-Page-1f8acb.svg?style=for-the-badge&logo=githubpages)](https://seongdrgn.github.io/pixel2catch/)
+[![Video](https://img.shields.io/badge/Video-YouTube-ff0000.svg?style=for-the-badge&logo=youtube)](#)
+
+<!-- TODO: add a teaser image/GIF, e.g. ./docs/teaser.gif -->
+<!-- <img src="docs/teaser.gif" width="80%"> -->
+
+</div>
 
 ---
 
-## Training algorithm
+## Overview
 
-Training uses the **MAPPO algorithm from Isaac Lab's built-in [skrl](https://skrl.readthedocs.io)
-integration, without any modification.** We do not ship a custom RL library — the policy is
-trained by Isaac Lab's standard skrl runner driven by the agent config in
-[`catchpolicy/agents/pixel2catch.yaml`](catchpolicy/agents/pixel2catch.yaml)
-(`agent.class: MAPPO`, `trainer.class: SequentialTrainer`). Verified identical to upstream
-`skrl==1.4.3`.
+**Pixel2Catch** learns an agile, dynamic object-**catching** policy for a UR5e arm equipped
+with an Allegro hand, using **only a single RGB camera** as the exteroceptive sensor. The arm
+(approach) and the hand (grasp) are formulated as two cooperating agents and trained jointly
+with **MAPPO** (Multi-Agent PPO) in [Isaac Lab](https://isaac-sim.github.io/IsaacLab/), then
+transferred to the real world (**sim-to-real**) directly from pixels.
+
+This repository releases the **simulation training code** for the Pixel2Catch task:
+the environment, its configuration, the multi-agent (MAPPO) agent config, and the simulation
+assets needed to reproduce training.
+
+> **Training algorithm.** Pixel2Catch is trained with the **MAPPO algorithm from Isaac Lab's
+> built-in [skrl](https://skrl.readthedocs.io) integration, used without any modification**
+> (verified identical to upstream `skrl==1.4.3`). No custom RL library is shipped — the policy
+> is produced by Isaac Lab's standard skrl runner driven by
+> [`catchpolicy/agents/pixel2catch.yaml`](catchpolicy/agents/pixel2catch.yaml).
 
 ---
 
-## Requirements
+## Key Features
+
+- 🎥 **Single RGB camera** — pixel observations only, no depth / motion capture / object pose.
+- 🤝 **Multi-agent (MAPPO)** — arm and hand as cooperating agents, jointly trained.
+- ⚡ **Agile dynamic catching** — catch objects thrown into the workspace.
+- 🔁 **Sim-to-real** — policy transfers from Isaac Lab simulation to hardware.
+- 🧩 **Drop-in Isaac Lab task** — auto-registered as the `pixel2catch` Gym environment.
+
+---
+
+## Installation
+
+### Prerequisites
 
 - Ubuntu 22.04
-- NVIDIA GPU + recent driver (RTX-class recommended for camera/tiled rendering)
+- NVIDIA GPU + recent driver (RTX-class recommended for camera / tiled rendering)
 - Python 3.10 (Conda recommended)
-- **Isaac Sim + Isaac Lab** — install first via the official guide:
-  https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html
-- `skrl==1.4.3` (see [`requirements.txt`](requirements.txt))
+
+### 1. Install Isaac Sim & Isaac Lab
+
+Follow the official guide and finish a working installation first:
+https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html
+
+### 2. Install Python dependencies
+
+With the Isaac Lab conda environment **active**:
 
 ```bash
-# after Isaac Lab is installed and its conda env is active
-pip install -r requirements.txt
+pip install -r requirements.txt   # skrl==1.4.3 (Isaac Lab's MAPPO backend)
 ```
 
----
+### 3. Integrate the Pixel2Catch task into Isaac Lab
 
-## Installation (register the task into Isaac Lab)
-
-This repo is an Isaac Lab *direct* task package. Copy (or symlink) the `catchpolicy/`
-folder into Isaac Lab's direct-tasks directory so it is auto-discovered and registered:
+Pixel2Catch is an Isaac Lab **direct** task. Isaac Lab auto-discovers every sub-package under
+`isaaclab_tasks/direct/` (via `import_packages` in `isaaclab_tasks/__init__.py`), so simply
+placing the `catchpolicy/` folder there is enough to register the task — **no code edits or
+manual imports are required.**
 
 ```bash
-# from the root of this repository
+# from the root of this repository, point ISAACLAB_ROOT at your Isaac Lab clone
+export ISAACLAB_ROOT=/path/to/IsaacLab
+
+# Option A — copy
 cp -r catchpolicy \
-  /path/to/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/
+  "$ISAACLAB_ROOT/source/isaaclab_tasks/isaaclab_tasks/direct/"
 
-# or symlink (keeps a single source of truth)
+# Option B — symlink (keeps this repo as the single source of truth)
 ln -s "$(pwd)/catchpolicy" \
-  /path/to/IsaacLab/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy
+  "$ISAACLAB_ROOT/source/isaaclab_tasks/isaaclab_tasks/direct/catchpolicy"
 ```
 
-The task registers the Gym id **`pixel2catch`** (see `catchpolicy/__init__.py`).
+**Verify** the task is registered:
 
-### Assets
+```bash
+cd "$ISAACLAB_ROOT"
+python scripts/environments/list_envs.py | grep pixel2catch
+```
 
-The robot/table USD assets needed by the task are bundled under
-`catchpolicy/assets/` and are resolved automatically relative to the package
-(no absolute paths). Specifically:
-
-- `catchpolicy/assets/allegroUR5e/...` — UR5e + Allegro hand robot
-- `catchpolicy/assets/table.usd` — table
-
-Thrown objects are generated procedurally (cones/cylinders), so no object USD library
-is required.
+You should see the `pixel2catch` task listed. The robot/table USD assets are bundled under
+`catchpolicy/assets/` and resolved relative to the package (no absolute paths), so no extra
+asset setup is needed. Thrown objects are generated procedurally, so no object USD library is
+required.
 
 ---
 
 ## Training
 
-Train the joint arm+hand catching policy with MAPPO using Isaac Lab's built-in skrl trainer:
+Run from the Isaac Lab root. Training uses Isaac Lab's built-in skrl trainer with `MAPPO`:
 
 ```bash
-# run from the IsaacLab root
 python scripts/reinforcement_learning/skrl/train.py \
     --task pixel2catch \
     --algorithm MAPPO \
@@ -84,14 +123,10 @@ python scripts/reinforcement_learning/skrl/train.py \
     --headless
 ```
 
-Logs and checkpoints are written under `logs/skrl/pixel2catch/` (configured by the
-`experiment` block in `pixel2catch.yaml`).
-
----
+Logs and checkpoints are written to `logs/skrl/pixel2catch/` (configured by the `experiment`
+block in `pixel2catch.yaml`).
 
 ## Evaluation / Play
-
-Roll out a trained checkpoint:
 
 ```bash
 python scripts/reinforcement_learning/skrl/play.py \
@@ -101,43 +136,55 @@ python scripts/reinforcement_learning/skrl/play.py \
     --checkpoint /path/to/logs/skrl/pixel2catch/<run>/checkpoints/best_agent.pt
 ```
 
----
-
 ## Monitoring (TensorBoard)
 
 ```bash
-# from the IsaacLab root
 ./isaaclab.sh -p -m tensorboard.main --logdir=logs/skrl/pixel2catch
 ```
 
 ---
 
-## Repository layout
+## Repository Layout
 
 ```
 pixel2catch-github/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-└── catchpolicy/
-    ├── __init__.py            # registers the `pixel2catch` Gym task
-    ├── pixel2catch.py         # DynamicCatchEnv (environment logic)
-    ├── pixel2catch_cfg.py     # DynamicCatchEnvCfg (scene / sensors / rewards)
+└── catchpolicy/                  # Isaac Lab direct task (drop into .../direct/)
+    ├── __init__.py               # registers the `pixel2catch` Gym task
+    ├── pixel2catch.py            # DynamicCatchEnv — environment logic
+    ├── pixel2catch_cfg.py        # DynamicCatchEnvCfg — scene / sensors / rewards
     ├── agents/
     │   ├── __init__.py
-    │   └── pixel2catch.yaml   # MAPPO agent config (skrl)
-    └── assets/
-        ├── allegroUR5e/       # UR5e + Allegro hand USD
+    │   └── pixel2catch.yaml       # MAPPO agent config (skrl)
+    └── assets/                    # simulation assets only
+        ├── allegroUR5e/           # UR5e + Allegro hand (USD + meshes)
         └── table.usd
 ```
 
 ---
 
-## Troubleshooting
+## Citation
 
-For Anaconda users, if you hit shared-library errors, complete the Isaac Lab setup and
-source the Isaac Sim conda env:
+If you find this work useful, please cite:
 
-```bash
-cd /path/to/IsaacLab/_isaac_sim && source setup_conda_env.sh
+```bibtex
+@article{pixel2catch,
+  title   = {Pixel2Catch: Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera},
+  author  = {TODO},
+  journal = {TODO},
+  year    = {TODO}
+}
 ```
+
+## Acknowledgements
+
+Built on [Isaac Lab](https://github.com/isaac-sim/IsaacLab) and the
+[skrl](https://github.com/Toni-SM/skrl) reinforcement learning library. We thank their authors
+and maintainers.
+
+## License
+
+<!-- TODO: choose a license (e.g. BSD-3-Clause, MIT) and add a LICENSE file -->
+TBD
