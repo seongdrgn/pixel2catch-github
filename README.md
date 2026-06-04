@@ -11,7 +11,7 @@
 <p>
   <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%93%84%20Paper-b31b1b?style=flat" alt="Paper"/></a>
   <a href="https://seongdrgn.github.io/pixel2catch/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-1f72b8?style=flat" alt="Project Page"/></a>
-  <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%8E%A5%20Video-FF0000?style=flat" alt="Video"/></a>
+  <a href="https://www.youtube.com/watch?v=kV10T-2zh5w" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Video-FF0000?style=flat&logo=youtube&logoColor=white" alt="Video"/></a>
 </p>
 
 <table>
@@ -30,9 +30,9 @@ fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch
 
 ---
 
-## 🎉 News
+## News
 
-- **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_!
+- **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_! 🎉
 
 ---
 
