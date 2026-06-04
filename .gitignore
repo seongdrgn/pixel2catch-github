@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Training artifacts / logs / checkpoints (do not commit)
+logs/
+runs/
+outputs/
+wandb/
+*.pt
+*.pth
+*.ckpt
+
+# Large / generated assets (keep only what the task needs; see README)
+*.zip
+assets/ur5e/
+assets/valid_objects/
+**/.thumbs/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp

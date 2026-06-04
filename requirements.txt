@@ -1,0 +1,19 @@
+# Python dependencies for the pixel2catch task.
+#
+# NOTE:
+#   Isaac Sim and Isaac Lab are NOT installed via this file. Install them first
+#   by following the official Isaac Lab installation guide:
+#   https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html
+#
+#   The packages below are the additional/runtime dependencies used by this task.
+#   torch is normally provided by your Isaac Sim / Isaac Lab installation; the
+#   version is listed here only for reference (do not reinstall over Isaac Sim's).
+
+# Reinforcement learning library (provides the MAPPO multi-agent algorithm).
+# The training uses Isaac Lab's built-in skrl integration WITHOUT modification.
+skrl==1.4.3
+
+# Core scientific / RL stack (typically already satisfied by Isaac Lab).
+gymnasium==1.2.0
+numpy==1.26.4
+# torch==2.7.0   # provided by Isaac Sim; pin only if installing standalone
