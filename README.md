@@ -14,11 +14,17 @@
   <a href="#"><img src="https://img.shields.io/badge/Video-YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Video"/></a>
 </p>
 
-<img src="docs/demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
+<table>
+<tr>
+<td align="center"><img src="docs/cube.gif" width="100%" alt="Cube catching demo"/><br/><b>Cube</b></td>
+<td align="center"><img src="docs/L.gif" width="100%" alt="L-block catching demo"/><br/><b>L-block</b></td>
+<td align="center"><img src="docs/tri.gif" width="100%" alt="Triangle catching demo"/><br/><b>Triangle</b></td>
+</tr>
+</table>
 
-<sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera,
-shown first at real time, then replayed in slow motion (0.3×). Policies are trained entirely in simulation and
-transferred directly to the real robot without fine-tuning. See the full videos on the
+<sub><em>Real-world demonstrations (full clips, original speed) of zero-shot catching of human-thrown objects from a
+single RGB camera. Each clip shows the real-time catch followed by the authors' slow-motion replay. Policies are
+trained entirely in simulation and transferred directly to the real robot without fine-tuning. Full videos on the
 <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
 </div>
