@@ -32,7 +32,7 @@ fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch
 
 ## 🎉 News
 
-- **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_! 🎉
+- **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_!
 
 ---
 
