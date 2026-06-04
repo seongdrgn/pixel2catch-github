@@ -17,8 +17,9 @@
 <img src="docs/real_demo.gif" width="92%" alt="Pixel2Catch real-world catching demonstrations"/>
 
 <sub><em>Zero-shot real-world catching of human-thrown objects (cube, L-block, triangle) from a single RGB camera,
-shown in slow motion (0.3×). Policies are trained entirely in simulation and transferred directly to the real robot
-without fine-tuning. See the full-speed videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
+shown first at real time, then replayed in slow motion (0.3×). Policies are trained entirely in simulation and
+transferred directly to the real robot without fine-tuning. See the full videos on the
+<a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
 </div>
 
@@ -26,8 +27,7 @@ without fine-tuning. See the full-speed videos on the <a href="https://seongdrgn
 
 ## 🎉 News
 
-> **Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_!** 🎉
-> Congratulations to the team! (Accepted May 25, 2026.)
+> **[May 25, 2026]** Pixel2Catch has been accepted to _IEEE Robotics and Automation Letters (RA-L) 2026_! 🎉
 
 ---
 
