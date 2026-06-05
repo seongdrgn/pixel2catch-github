@@ -26,6 +26,20 @@
 single RGB camera. Policies are trained entirely in simulation and transferred directly to the real robot without
 fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch/">project page</a>.</em></sub>
 
+<br/><br/>
+
+<b>Cross-Thrower &amp; Cross-Scene Generalization</b>
+
+<table>
+<tr>
+<td align="center"><img src="docs/kimsy_cube.gif" width="100%" alt="Cube — cross-thrower / cross-scene"/><br/><b>Cube</b></td>
+<td align="center"><img src="docs/kimsy_L.gif" width="100%" alt="L-block — cross-thrower / cross-scene"/><br/><b>L-block</b></td>
+<td align="center"><img src="docs/kimsy_tri.gif" width="100%" alt="Triangle — cross-thrower / cross-scene"/><br/><b>Triangle</b></td>
+</tr>
+</table>
+
+<sub><em>The same policies generalize to a different thrower and a different scene, with no retraining.</em></sub>
+
 </div>
 
 ---
