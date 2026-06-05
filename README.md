@@ -40,6 +40,8 @@ fine-tuning. Full videos on the <a href="https://seongdrgn.github.io/pixel2catch
 
 <sub><em>The same policies generalize to a different thrower and a different scene, with no retraining.</em></sub>
 
+<sub><em>* In this results, background pixels are dimmed to better visualize the bounding box tracked by SAM2.</em></sub>
+
 </div>
 
 ---
