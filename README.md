@@ -16,9 +16,9 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/cube.gif" width="100%" alt="Cube catching demo"/><br/><b>Cube</b></td>
-<td align="center"><img src="docs/L.gif" width="100%" alt="L-block catching demo"/><br/><b>L-block</b></td>
-<td align="center"><img src="docs/tri.gif" width="100%" alt="Triangle catching demo"/><br/><b>Triangle</b></td>
+<td align="center"><img src="docs/chojh_cube.gif" width="100%" alt="Cube catching demo"/><br/><b>Cube</b></td>
+<td align="center"><img src="docs/chojh_L.gif" width="100%" alt="L-block catching demo"/><br/><b>L-block</b></td>
+<td align="center"><img src="docs/chojh_tri.gif" width="100%" alt="Triangle catching demo"/><br/><b>Triangle</b></td>
 </tr>
 </table>
 
