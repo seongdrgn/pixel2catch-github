@@ -216,10 +216,11 @@ If you find this work useful, please cite:
 
 ```bibtex
 @article{kim2026pixel2catch,
-  title   = {Pixel2Catch: Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera},
-  author  = {Kim, Seongyong and Cho, Junhyeon and Lee, Kang-Won and Lim, Soo-Chul},
-  journal = {IEEE Robotics and Automation Letters (RA-L)},
-  year    = {2026}
+  title={Pixel2Catch: Multi-Agent Sim-to-Real Transfer for Agile Manipulation with a Single RGB Camera},
+  author={Kim, Seongyong and Cho, Junhyeon and Lee, Kang-Won and Lim, Soo-Chul},
+  journal={IEEE Robotics and Automation Letters},
+  year={2026},
+  publisher={IEEE}
 }
 ```
 
