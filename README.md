@@ -9,7 +9,7 @@
 
 <!-- TODO: replace the "#" links for Paper and Video with the real URLs. -->
 <p>
-  <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%93%84%20Paper-b31b1b?style=flat" alt="Paper"/></a>
+  <a href="https://ieeexplore.ieee.org/document/11563623" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%93%84%20Paper-b31b1b?style=flat" alt="Paper"/></a>
   <a href="https://seongdrgn.github.io/pixel2catch/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-1f72b8?style=flat" alt="Project Page"/></a>
   <a href="https://www.youtube.com/watch?v=kV10T-2zh5w" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Video-FF0000?style=flat&logo=youtube&logoColor=white" alt="Video"/></a>
 </p>
